@@ -1,0 +1,56 @@
+---
+// import pokemonLogo from '../assets/pokemon.svg';
+// import pokemonLogo from '../assets/pokemon-logo-japanese.png';
+---
+
+<section id="hero">
+	<div class="image-container">
+	<a href="https://pokeapi.co/">
+		<img class="shining-image" src="/pokemon-logo-japanese.png" width="640" alt="Pokedex API Homepage" />
+	</a>
+</div>
+	<h1>
+		Welcome human! Explore my cute pokedexy by me, Yerko.
+	</h1>
+	<section id="links">
+		<a class="button button--gradient" href="https://pokeapi.co/">Visit Pokedex API</a>
+	</section>
+</section>
+
+<style>
+	/* Container for the image */
+	.image-container {
+		
+		position: relative;
+		overflow: hidden;
+		display: inline-block;
+		margin: auto;
+		display: block;
+	}
+
+	/* The actual image */
+	.shining-image {
+		position: relative;
+		z-index: 1;
+	}
+
+	@keyframes shine {
+	0% {
+		transform: translateX(-100%) skewX(-15deg);
+	}
+	100% {
+		transform: translateX(100%) skewX(-15deg);
+	}
+	}
+
+	/* Shine effect overlay */
+	.image-container::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 10;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+	}
+</style>

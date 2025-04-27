@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Aboutme from '../components/Aboutme.astro';
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title='Astro Starter Kit'>
+    <h1>About me:
+         hey there it's me, Yerk. Welcome to the biggest pokemon library in the world, yes :)
+        </h1>
+    <Aboutme></Aboutme>
+</Layout>
+
+<style>
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      height: 100vh; /* optional: makes it full page */
+    }
+  
+    .about h1 {
+      margin-bottom: 24px;
+      font-size: 6rem;
+    }
+  </style>
+  

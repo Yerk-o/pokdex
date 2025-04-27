@@ -1,0 +1,70 @@
+---
+const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=950');
+const jsonResponse = await response.json();
+const results = jsonResponse.results;
+console.log(results);
+
+const title = "My Pokedexy";
+---
+
+<h1>P O K E S E X Y</h1>
+<div class="pokemon-grid">
+    {results.map((pokemon : any) => 
+        <a href={`/pokemon/${pokemon.name}`}>
+            <div class="pokemon-card">
+                <span class="pokemon-name">{pokemon.name.toUpperCase()}</span>
+            </div>
+        </a>
+    )}
+</div>
+
+<style>
+
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 80px;
+        color: #f108a8;
+    }
+
+    .pokemon-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .pokemon-card {
+        width: 140px;
+        height: 80px;
+        background-image: linear-gradient(14deg, #72f9de, #f108a8);
+        border-radius: 35px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        cursor: url('pikachu.png'), auto;
+
+    }
+
+    .pokemon-card:hover {
+        transform: translateY(-25px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 35px; 
+        background-image: #d0d0d0; 
+    }
+
+    .pokemon-name {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #410522;
+        text-align: center;
+        padding: 15px;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>

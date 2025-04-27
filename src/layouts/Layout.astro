@@ -1,0 +1,179 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import background from '../assets/background.svg';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ClientRouter />
+
+
+	</head>
+	<body>
+		<div id="page">
+			<img id="background" src={background.src} alt="" fetchpriority="high" />
+			<Header />
+			<main>
+				<div class="container">
+					<slot />
+				</div>
+			</main>
+		</div>
+
+
+	</body>
+</html>
+
+
+
+<style>
+	body {
+		cursor: url("../assets/picka.png"), auto;
+	}
+	.container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px;
+    }
+
+	#background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		filter: blur(100px);
+	}
+
+	#page {
+		font-family:'Courier New', Courier, monospace, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		height: 100%;
+	}
+	main {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+	}
+</style>
+
+<style is:global>
+	#hero {
+		display: flex;
+		align-items: start;
+		flex-direction: column;
+		justify-content: center;
+		padding: 16px;
+	}
+
+	h1 {
+		font-size: 45px;
+		margin-top: 2.25em;
+		text-align: center;
+	}
+
+	#links {
+		display: flex;
+		gap: 16px;
+		width: 100%;
+		justify-content: center;
+	}
+
+	a.button,
+	nav a {
+		display: block;
+        padding: 8px 24px;
+        border: 40px solid #081ff0; /* Fixed: border syntax */
+        color: #081ff0;
+        border-radius: 55px; /* This makes the buttons rounded */
+        text-decoration: none;
+        background-color: white; /* Add background color if needed */
+        transition: all 0.3s ease; /* Smooth transition for hover effect */
+
+	}
+
+	a.button:hover,
+	nav a:hover {
+		color: rgb(240, 218, 218);
+		border-radius: 15px;
+		background: linear-gradient(83.21deg, #3245ff 0%, #a308ec 100%);
+		box-shadow:
+			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+			inset 0 -2px 0 rgba(119, 178, 233, 0.24);
+	}
+
+
+	a.button--gradient {
+		color: rgb(220, 214, 54);
+		background: linear-gradient(83.21deg, #32ff8e 0%, #bc52ee 100%);
+		box-shadow:
+			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
+		border-radius: 25px;
+		font-weight: bold;
+	}
+
+	a.button--gradient:hover {
+			color: rgb(18, 11, 218);
+			box-shadow: none;
+		}
+	}
+
+	pre {
+		font-family:
+			'Courier New';
+		font-weight: bold;
+		background: linear-gradient(14deg, #33d841 0%, #f041ff 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		border-radius: 45px;
+		margin: 10;
+	}
+
+	h2 {
+		margin: 0 0 1em;
+		font-weight: bold;
+		color: #053bb0;
+		font-size: 20px;
+	}
+
+	p {
+		color: #cca62a;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: -0.006em;
+		margin: 0;
+	}
+
+	code {
+		display: inline-block;
+		background:
+			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
+			linear-gradient(155deg, #93d833 0%, #f041ff 18%, #f5cee7 45%) border-box;
+		border-radius: 8px;
+		border: 1px solid;
+		padding: 6px 8px;
+	}
+
+	.box {
+		padding: 16px;
+		background: rgba(255, 255, 255, 1);
+		border-radius: 16px;
+		border: 1px solid white;
+	}
+
+</style>
